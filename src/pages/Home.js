@@ -1,7 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import Header from "../components/Header";
 import Balance from "../components/Balance";
-import Movements from "../components/Movements";
 
 export default function Home(){
     return(
@@ -16,6 +14,7 @@ const estilo = StyleSheet.create({
     container:{
         flex: 1,
         alignItems: 'center',
+        backgroundColor: '#ababab'
     },
     escrita:{
         fontSize: 50,

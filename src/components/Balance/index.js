@@ -1,34 +1,41 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TextInput, TouchableOpacity, View, Platform} from "react-native";
+import React, { useState } from "react";
+import {FontAwesome5} from "@expo/vector-icons"
+
+
 
 export default function Balance(){
+    const [login, setLogin] = useState("");
+    const [senha, setSenha] = useState("");
+
     return(
         <View style={estilo.container}>
-            <View style={estilo.item}>
-                <Text style={estilo.itemTitle}>Saldo</Text>
-            
-            <View style={estilo.content}>
-                <Text style={estilo.currencySymbol}>R$</Text>
-                <Text style={estilo.balance}>1.500,00</Text>
-            </View>
-            </View>
-
-            <View style={estilo.item}>
-                <Text style={estilo.itemTitle}>Gastos</Text>
-            
-            <View style={estilo.content}>
-                <Text style={estilo.currencySymbol}>R$</Text>
-                <Text style={estilo.expenses}>500,00</Text>
-            </View>
-            </View>
+            <FontAwesome5 name="users" size={26} color="#000" style={estilo.logo}></FontAwesome5>
+            <TextInput
+                style={estilo.input}
+                placeholder="LOGIN"
+                value={login}
+                onChangeText={(text) => setLogin(text)}
+            />
+            <TextInput
+                style={estilo.input}
+                placeholder="SENHA"
+                value={senha}
+                onChangeText={(text) => setSenha(text)}
+                secureTextEntry={true}
+            />
+            <TouchableOpacity style={estilo.button}>
+                <Text>LOGIN</Text>
+            </TouchableOpacity>
         </View>
-    )
+    );
 }
 
 const estilo = StyleSheet.create({
     container:{
-        backgroundColor: 'green',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
+        backgroundColor: '#ececec',
+        flexDirection: 'colum',
+        justifyContent: 'center',
         alignItems: 'center',
         paddingStart: 18,
         paddingEnd: 18,
@@ -39,29 +46,43 @@ const estilo = StyleSheet.create({
         paddingTop: 22,
         paddingBottom: 22,
         zIndex: 99,
-        height: 400,
-        width: 500,
-    },
-    itemTitle:{
-        fontSize: 20,
-        color: '#909090',
+        height: Platform.OS === 'web' ? 400 : 400,
+        width: Platform.OS === 'web' ? 500 : 300,
+        //height: '60vh',
+        //width: '70vh',
 
-    },
-    content:{
-        flexDirection: 'row',
-        alignItems: 'center',
+        //sombra
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        
+        //sombra mobile
+        elevation: 5,
 
+        
     },
-    currencySymbol:{
-        color: '#909090',
-        marginRight: 5,
+    input:{
+        height: Platform.OS === 'web' ? 40 : 50,
+        width: Platform.OS === 'web' ? '80%' : '90%',
+        borderColor: 'gray',
+        borderWidth: 1,
+        marginBottom: 20,
+        paddingHorizontal: 10,
+        backgroundColor: '#fff',
+        borderRadius: 4,
     },
-    balance:{
-        color: 'green',
-        fontSize: 20,
+    button:{
+        backgroundColor: "#5F9EA0",
+        padding: 10,
+        borderRadius: 5,
     },
-    expenses:{
-        color: 'red',
-        fontSize: 20,
+    logo:{
+        borderRadius: 100,
+        backgroundColor: '#adadad',
+        padding: 10,
+        marginBottom: 40,
+        marginTop: -40,
+        fontSize: 40,
     }
 });
