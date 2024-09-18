@@ -1,27 +1,26 @@
-import { StyleSheet, Text, View } from "react-native";
-import Balance from "../components/Balance";
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import NavLateral from '../components/NavLateral';
+import NavTop from '../components/NavTop';
+import ListLicitacoes from '../components/ListLicitacoes';
 
-export default function Home(){
-    return(
-        <View style={estilo.container}>
-            <Balance style={estilo.login}></Balance>
+export default function App() {
+  return (
+    <View style={styles.container}> 
+        <NavLateral/>
+        <View style={{flex:1}}>
+          <NavTop/>
+          <ListLicitacoes/>
         </View>
-        
-    )
+    </View>
+  );
 }
 
-const estilo = StyleSheet.create({
-    container:{
-        flex: 1,
-        alignItems: 'center',
-        backgroundColor: '#ababab'
-    },
-    escrita:{
-        fontSize: 50,
-    },
-    login:{
-        marginTop: 10,
-    }
-
-})
-    
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#ffffff',
+    justifyContent: 'center',
+    flexDirection:'row'
+  },
+});
