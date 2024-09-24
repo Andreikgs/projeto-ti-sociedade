@@ -1,22 +1,38 @@
-import { StyleSheet, Text, TouchableOpacity, Platform } from "react-native"
-import { View } from "react-native"
+import { StyleSheet, View, Text, TouchableOpacity, Platform } from "react-native"
+import { useState } from 'react';
 import {FontAwesome} from "@expo/vector-icons"
 
 
 export default props =>{
+    const [isHovered, setIsHovered] = useState(null);
 
     return(
         <View style={estilo.container}>
             {Platform.OS === 'web' && ( // Verifica se está rodando na web
                 <View style={estilo.navLateral}>
                     <FontAwesome name="legal" size={'4vw'} color="#04091f" style={estilo.logo}></FontAwesome>
-                    <TouchableOpacity style={estilo.btn}>
+                    <TouchableOpacity 
+                        style={[estilo.btn, 
+                        isHovered === 'captacao' && estilo.btnHover]}
+                        onMouseEnter={() => setIsHovered('captacao')}
+                        onMouseLeave={() => setIsHovered(false)}
+                        >
                         <Text style={estilo.txtbtn}>CAPTAÇÃO</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={estilo.btn}>
+                    <TouchableOpacity 
+                        style={[estilo.btn, 
+                        isHovered === 'operacao' && estilo.btnHover]}
+                        onMouseEnter={() => setIsHovered('operacao')}
+                        onMouseLeave={() => setIsHovered(false)}
+                    >
                         <Text style={estilo.txtbtn}>OPERAÇÃO</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={estilo.btn}>
+                    <TouchableOpacity 
+                        style={[estilo.btn, 
+                        isHovered === 'juridico' && estilo.btnHover]}
+                        onMouseEnter={() => setIsHovered('juridico')}
+                        onMouseLeave={() => setIsHovered(false)}
+                    >
                         <Text style={estilo.txtbtn}>JURIDICO</Text>
                     </TouchableOpacity>
                 </View>
@@ -47,10 +63,12 @@ const estilo = StyleSheet.create({
         height: '100%',
         width: '10vw',
         backgroundColor: "#04091f",
+        borderRightWidth: 1,
+        borderColor: '#FFD700',
 
         //sombra
         shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
+        shadowOffset: { width: 2, height: 2 },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
     },
@@ -62,6 +80,11 @@ const estilo = StyleSheet.create({
         marginBottom:10,
         backgroundColor: "#465881",
         borderRadius: 40,
+        transition: 'all 0.3s ease',
+    },
+    btnHover: {
+        backgroundColor: "#FFD700",  // Cor do botão quando o mouse estiver em cima
+        transform: [{ scale: 1.1 }], // Aumenta o botão
     },
     txtbtn:{
         justifyContent: 'center',
