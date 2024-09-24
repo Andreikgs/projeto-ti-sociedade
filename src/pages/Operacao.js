@@ -1,6 +1,12 @@
 import { Text } from "react-native"
 
 export default operacao(
-    <Text></Text>
+    <>
+        <NavLateral/>
+        <View style={{flex:1}}>
+          <NavTop/>
+          <ListLicitacoes/>
+        </View>
+    </>
 )
     

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native-web';
+import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { useSpring, animated } from '@react-spring/web';
 
 export default function NavLateral(props) {
@@ -30,10 +30,10 @@ export default function NavLateral(props) {
             >
                 <TouchableOpacity
                     style={{ width: '100%', height: '100%', alignItems: 'center' }} 
-                    onPress={() => console.log('Item 1 clicked')}
+                    onPress={()=>navigation.navigate('Login')}
                 >
                     <Text style={hoveredItem === 'item1' ? estilo.textItemHovered : estilo.textItem}>
-                        Confirmadas
+                        LOGIN
                     </Text>
                 </TouchableOpacity>
             </animated.div>

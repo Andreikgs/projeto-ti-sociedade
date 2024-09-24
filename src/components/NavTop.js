@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native-web';
+import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { useSpring, animated } from '@react-spring/web';
 
 export default function NavTop(props) {

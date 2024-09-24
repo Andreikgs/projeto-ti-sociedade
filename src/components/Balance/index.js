@@ -4,7 +4,7 @@ import {FontAwesome5} from "@expo/vector-icons"
 
 
 
-export default function Balance(){
+export default function Balance({ navigation }){
     const [login, setLogin] = useState("");
     const [senha, setSenha] = useState("");
 
@@ -24,7 +24,8 @@ export default function Balance(){
                 onChangeText={(text) => setSenha(text)}
                 secureTextEntry={true}
             />
-            <TouchableOpacity style={estilo.button}>
+            <TouchableOpacity style={estilo.button}
+            onPress={()=>navigation.navigate("Tela2")}>
                 <Text>LOGIN</Text>
             </TouchableOpacity>
         </View>
@@ -34,7 +35,7 @@ export default function Balance(){
 const estilo = StyleSheet.create({
     container:{
         backgroundColor: '#ececec',
-        flexDirection: 'colum',
+        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
         paddingStart: 18,
@@ -76,6 +77,7 @@ const estilo = StyleSheet.create({
         backgroundColor: "#5F9EA0",
         padding: 10,
         borderRadius: 5,
+        alignItems: 'center',
     },
     logo:{
         borderRadius: 100,
