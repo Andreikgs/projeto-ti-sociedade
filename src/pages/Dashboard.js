@@ -16,6 +16,7 @@ export default props =>{
                         isHovered === 'captacao' && estilo.btnHover]}
                         onMouseEnter={() => setIsHovered('captacao')}
                         onMouseLeave={() => setIsHovered(false)}
+                        onPress={() => props.navigation.navigate("capta")}
                         >
                         <Text style={estilo.txtbtn}>CAPTAÇÃO</Text>
                     </TouchableOpacity>
@@ -24,6 +25,7 @@ export default props =>{
                         isHovered === 'operacao' && estilo.btnHover]}
                         onMouseEnter={() => setIsHovered('operacao')}
                         onMouseLeave={() => setIsHovered(false)}
+                        onPress={() => props.navigation.navigate("Operacao")}
                     >
                         <Text style={estilo.txtbtn}>OPERAÇÃO</Text>
                     </TouchableOpacity>
@@ -32,6 +34,7 @@ export default props =>{
                         isHovered === 'juridico' && estilo.btnHover]}
                         onMouseEnter={() => setIsHovered('juridico')}
                         onMouseLeave={() => setIsHovered(false)}
+                        onPress={() => props.navigation.navigate("capta")}
                     >
                         <Text style={estilo.txtbtn}>JURIDICO</Text>
                     </TouchableOpacity>
@@ -87,8 +90,6 @@ const estilo = StyleSheet.create({
         transform: [{ scale: 1.1 }], // Aumenta o botão
     },
     txtbtn:{
-        justifyContent: 'center',
-        alignItems: 'center',
         fontSize: '1vw',
         fontWeight: 'bold',
     }
