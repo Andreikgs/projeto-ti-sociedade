@@ -16,7 +16,7 @@ export default props =>{
                         isHovered === 'captacao' && estilo.btnHover]}
                         onMouseEnter={() => setIsHovered('captacao')}
                         onMouseLeave={() => setIsHovered(false)}
-                        onPress={() => props.navigation.navigate("capta")}
+                        onPress={() => props.navigation.navigate("Capta")}
                         >
                         <Text style={estilo.txtbtn}>CAPTAÇÃO</Text>
                     </TouchableOpacity>

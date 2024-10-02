@@ -3,6 +3,7 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-nativ
 import {FontAwesome} from "@expo/vector-icons"
 
 
+
 export default props =>{
     const [valorLogin, setValorLogin] = useState("");
     const doLogin = ()=>{

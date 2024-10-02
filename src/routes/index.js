@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 import Operacao from "../pages/Operacao";
+import Captacao from "../pages/Captacao";
 
 
 const Stack = createNativeStackNavigator();
@@ -17,6 +18,7 @@ export default props =>(
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Dash" component={Dashboard} />
             <Stack.Screen name="Operacao" component={Operacao} />
+            <Stack.Screen name="Capta" component={Captacao} />
         </Stack.Navigator>
     </NavigationContainer>
 
